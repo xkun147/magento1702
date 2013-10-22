@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sales>
+            <children>
+                <training_vendor translate="title" module="training_world">
+                    <title>Vendor</title>
+                    <action>adminhtml/vendor</action>
+                </training_vendor>
+            </children>
+        </sales>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sales>
+                        <children>
+                            <training_vendor>
+                                <title>Vendor</title>
+                            </training_vendor>
+                        </children>
+                    </sales>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_vendor_index>
+        <reference name="content">
+            <block type="training_world/adminhtml_vendor" name="vendor.demo"/>
+        </reference>
+    </adminhtml_vendor_index>
+</layout>

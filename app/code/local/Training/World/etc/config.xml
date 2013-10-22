@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Training_World>
+            <version>0.1.2</version>
+        </Training_World>
+    </modules>
+    <global>
+        <models>
+            <training_world>
+                <class>Training_World_Model</class>
+                <resourceModel>vendor_resource</resourceModel>
+            </training_world>
+            <vendor_resource>
+                <class>Training_World_Model_Resource</class>
+                <entities>
+                    <vendor>
+                        <table>vendors</table>
+                    </vendor>
+                </entities>
+            </vendor_resource>
+        </models>
+        <blocks>
+            <training_world>
+                <class>Training_World_Block</class>
+            </training_world>
+        </blocks>
+        <helpers>
+            <training_world>
+                <class>Training_World_Helper</class>
+            </training_world>
+        </helpers>
+        <resources>
+            <training_world_setup>
+                <setup>
+                    <module>Training_World</module>
+                </setup>
+            </training_world_setup>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <training_world after="Mage_Adminhtml">Training_World_Adminhtml</training_world>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <training_world>
+                    <file>vendor.xml</file>
+                </training_world>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>
