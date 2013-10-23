@@ -100,4 +100,55 @@ class Training_World_Adminhtml_VendorController extends Mage_Adminhtml_Controlle
         }
         $this->_redirect('*/*/');
     }
+
+    public function massDeleteAction(){
+        $vendorIds = $this->getRequest()->getParam('vendor');
+
+        if(!is_array($vendorIds)){
+            Mage::getSingleton('adminhtml/session')->addError($this->__('Please select at least vendor!'));
+        }else{
+            try{
+                $model = Mage::getSingleton('training_world/vendor');
+                foreach ($vendorIds as $vendor){
+                    $model->load($vendor)->delete();
+                }
+                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Total of %d record(s) were deleted.',count($vendorIds)));
+            }
+            catch (Exception $e){
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
+        $this->_redirect('*/*/');
+    }
+
+    public function massStatusAction(){
+        $vendorIds = (array)$this->getRequest()->getParam('vendor');
+        $status = (int)$this->getRequest()->getParam('status');
+
+        try{
+            $model = Mage::getModel('training_world/vendor');
+            foreach($vendorIds as $vendor){
+                $model->load($vendor);
+                $model->setIsActive($status);
+                $model->save();
+            }
+            $this->_getSession()->addSuccess($this->__('Total of %d record(s) have bean updated.',count($vendorIds)));
+        }
+        catch (Mage_Core_Model_Exception $e){
+            $this->_getSession()->addError($e->getMessage());
+        }
+        catch (Mage_Core_Exception $e){
+            $this->_getSession()->addError($e->getMessage());
+        }
+        catch(Exception $e){
+            $this->_getSession()->addException($e,$this->__('An error occurred while updating the vendor(s) status.'));
+        }
+
+        $this->_redirect('*/*/');
+    }
+
+    protected function isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('sales/training_helloworld_vendor');
+    }
 }

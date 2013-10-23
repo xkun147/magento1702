@@ -63,4 +63,37 @@ class Training_World_Block_Adminhtml_Vendor_Grid extends Mage_Adminhtml_Block_Wi
     public function getRowUrl($row){
         return $this->getUrl('*/*/edit',array('id' =>$row->getId()));
     }
+
+    protected function _prepareMassaction(){
+        $this->setMassactionIdField('vendor_id');
+        $this->getMassactionBlock()->setFormFieldName('vendor');
+
+        $this->getMassactionBlock()->addItem('delete', array(
+            'label'     => $this->__('Delete'),
+            'url'       => $this->getUrl('*/*/massDelete'),
+            'confirm'   => $this->__('Are you sure?'),
+        ));
+
+        $this->getMassactionBlock()->addItem('status', array(
+            'label'     => $this->__('Change status'),
+            'url'       => $this->getUrl('*/*/massStatus', array(
+                '_current'  => true)),
+                'additional'=> array(
+                    'visibility'    => array(
+                        'name'  => 'status',
+                        'type'  => 'select',
+                        'class' => 'required-entry',
+                        'label' => $this->__('Status'),
+                        'values'=> array(
+                            1 => 'Yes',
+                            0 => 'No',
+                        ),
+                    ),
+                )
+
+            )
+        );
+
+        return $this;
+    }
 }
