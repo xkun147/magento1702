@@ -15,13 +15,17 @@
         <resources>
             <admin>
                 <children>
-                    <sales>
+                    <system>
                         <children>
-                            <training_vendor>
-                                <title>Vendor</title>
-                            </training_vendor>
+                            <config>
+                                <children>
+                                    <training_vendor translate="title" module="training_world">
+                                        <title>Vendor</title>
+                                    </training_vendor>
+                                </children>
+                            </config>
                         </children>
-                    </sales>
+                    </system>
                 </children>
             </admin>
         </resources>

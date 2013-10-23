@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <training_vendor>
+            <label>Vendor</label>
+            <tab>sales</tab>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <setting>
+                    <label>Vendor Setting</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <is_active>
+                            <label>Vendor is active</label>
+                            <comment>Vendor is active is shown in frontend</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_active>
+                    </fields>
+                </setting>
+            </groups>
+        </training_vendor>
+    </sections>
+</config>

@@ -60,4 +60,12 @@
             </updates>
         </layout>
     </adminhtml>
+
+    <default>
+        <training_vendor>
+            <setting>
+                <is_active>1</is_active>
+            </setting>
+        </training_vendor>
+    </default>
 </config>
