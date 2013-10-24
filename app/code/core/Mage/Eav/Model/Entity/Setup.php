@@ -1436,6 +1436,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
             if (!$bind) {
                 return $this;
             }
+            
             $this->getConnection()->insert($this->getTable($additionalTable), $bind);
         }
 
